@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const colors = require("colors");
 const connectDB = require("./config/db");
 const path = require("path");
+const cors = require("cors");
 
 // Initialize env variables
 dotenv.config();
@@ -17,6 +18,7 @@ const app = express();
 // Body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.cors();
 
 // Statis folder
 app.use(express.static(path.join(__dirname, "public")));
